@@ -26,20 +26,24 @@ public class Helper {
     }
     public static boolean isValidId(String leaderId) {
         if (leaderId == null || !leaderId.matches("\\d{9}")) { // Only numbers, length 9
-            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 6-9 digits)");
+            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 9 digits)");
+            return false;
+        }
+        return true;
+    }
+}
+
+    //Staff Helper
+    //validate the stuff ID if it meets the requirements
+
+    public static boolean isValidStaffID(String staffID) {
+        if (staffID == null || !staffID.matches("^S\\d{4}$")) {
+            System.out.println("Invalid Staff ID: Must start with 'S' followed by 4 digits.");
             return false;
         }
         return true;
     }
 
-    //Staff Helper
-    public static boolean isValid(String staffId) {
-        if (staffId == null || !staffId.matches("STF\\d{6}")) { // Format: STF123456
-            System.out.println("❌ Invalid Staff ID: " + staffId + " (Must follow 'STF' + 6 digits)");
-            return false;
-        }
-        return true;
-    }
 
     //Payment Helper
     // Validate payment ID format (must be 'PAY' followed by exactly 6 digits)
@@ -81,7 +85,7 @@ public class Helper {
 
    // Maintenance Request Helper
     public static boolean isValidRequestId(String requestId) {
-        if (requestId == null || !requestId.matches("^REQ\\d{6}$")) {
+        if (requestId == null || !requestId.matches("REQ\\d{6}")) {
             System.out.println("!Invalid Request ID: " + requestId + " (Must be 'REQ' followed by 6 digits).");
             return false;
         }
@@ -108,6 +112,14 @@ public class Helper {
         }
     }
 //Student Helper
+
+    public static boolean isValidStudentId(String studentId) {
+        if (studentId == null || !studentId.matches("STU\\d{6}")) { // Format: STU123456
+            System.out.println("❌ Invalid Student ID: " + studentId + " (Must follow 'STU' + 6 digits)");
+            return false;
+        }
+        return true;
+    }
     public static boolean isValidPhoneNumber(String phoneNumber) {
 
         return phoneNumber != null && phoneNumber.matches("\\d{10}");
